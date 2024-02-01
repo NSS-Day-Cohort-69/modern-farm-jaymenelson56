@@ -1,28 +1,25 @@
 import { createPlan } from './plan.js'
-import { createCorn } from "./seeds/corn.js"
-import { createPotato } from "./seeds/potato.js"
-import { createSoybean } from "./seeds/soybean.js"
-import { createSunflower } from "./seeds/sunflower.js"
-import { createWheat } from "./seeds/wheat.js"
-import { createAsparagus } from "./seeds/asparagus.js"
 import { addPlant, usePlants } from "./field.js"
 import { plantSeed } from "./tractor.js"
-import { harvestPlants } from "./harvestor.js"
-const cornSeed = createCorn()
-const potatoSeed = createPotato()
-const soybeanSeed = createSoybean()
-const sunflowerSeed = createSunflower()
-const wheatSeed = createWheat()
-const asparagusSeed = createAsparagus()
-const plantAdd = addPlant()
-const plantsUse = usePlants()
+import { harvestPlants } from "./harvester.js"
+import { catalog } from "./catalog.js"
+
 
 const yearlyPlan = createPlan()
 
-const planThis = plantSeed(yearlyPlan)
+const fieldSeed = plantSeed(yearlyPlan)
+
+const fieldPlot = addPlant(fieldSeed)
+
+const fieldPlants = usePlants(fieldPlot)
+
+const fieldHarvest = harvestPlants(fieldPlants)
+
+const log = catalog(fieldHarvest)
 
 
+const parentHTML = document.querySelector('#container')
 
-
+parentHTML.innerHTML = log
 
 

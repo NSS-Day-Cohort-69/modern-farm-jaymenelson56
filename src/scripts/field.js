@@ -1,26 +1,24 @@
-import { plantSeed } from "./tractor.js"
-
 const field = []
 
 
 
 
-export const addPlant = () => {
-    const plantPlan = plantSeed()
-    for (const plant of plantPlan) {
-       
-        
+export const addPlant = (seed) => {
+
+    for (const plant of seed) {
+
+
         field.push(plant)
     }
-    
+
 
     return field
 }
 
 console.log(field)
 
-export const usePlants = () => {
+export const usePlants = (field) => {
+    const newField = [...field]
 
-    return field.map(grass => ({ ...grass }))
-
+    return newField
 }

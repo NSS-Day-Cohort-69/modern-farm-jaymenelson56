@@ -4,8 +4,6 @@ import { createSoybean } from "./seeds/soybean.js"
 import { createSunflower } from "./seeds/sunflower.js"
 import { createWheat } from "./seeds/wheat.js"
 import { createAsparagus } from "./seeds/asparagus.js"
-import { createPlan } from './plan.js'
-const yearlyPlan = createPlan()
 const cornSeed = createCorn()
 const potatoSeed = createPotato()
 const soybeanSeed = createSoybean()
@@ -34,6 +32,7 @@ export const plantSeed = (plan) => {
                 row.push(wheatSeed)
             }
         }
+
     }
     return row
 }
